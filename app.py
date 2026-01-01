@@ -244,9 +244,11 @@ if st.button("Genera Report"):
             pdf.cell(30, 8, row['esito'], border=1)
             pdf.set_text_color(0, 0, 0)
             pdf.ln()
-            
+        
+        pdf_bytes = pdf.output(dest='S').encode('latin1')  #### FPDF2 PDF → bytes
         st.download_button( "Scarica Report PDF", 
-                            data=pdf.output(dest='S'),
+                            # data=pdf.output(dest='S'),
+                            data=pdf_bytes,
                             file_name="report_mathae_vis.pdf",
                             mime="application/pdf" )
 st.markdown('</div>', unsafe_allow_html=True)
