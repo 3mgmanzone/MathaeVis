@@ -154,15 +154,9 @@ def check_answer():
 
 # --- 5° RIGA: Campo di inserimento ---
 # Usiamo la chiave dinamica qui
-# --- CSS custom ---
+# --- CSS ---
 st.markdown("""
 <style>
-/* centra il widget */
-div[data-baseweb="input"] {
-    justify-content: center;
-}
-
-/* stile del campo input */
 input {
     text-align: center !important;
     font-size: 40px !important;
@@ -170,11 +164,11 @@ input {
 }
 </style>
 """, unsafe_allow_html=True)
-# --- number input ---
-st.number_input(
-    "Inserisci risultato e premi Invio",
-    step=1,
-    value=None,
+
+# --- input ---
+st.text_input(
+    label="Inserisci risultato e premi Invio",
+    value="",
     key=f"user_input_{st.session_state.input_key}",
     on_change=check_answer,
     label_visibility="collapsed"
