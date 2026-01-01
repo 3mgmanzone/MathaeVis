@@ -170,14 +170,18 @@ input {
 }
 </style>
 """, unsafe_allow_html=True)
-st.number_input(
-    "Inserisci risultato e premi Invio", 
+st.text_input(
+    "Risposta:", 
+    key=current_key, 
+    on_change=check_answer
+)#st.number_input(
+#    "Inserisci risultato e premi Invio", 
 #    step=1, 
-    format="%d",
-    value=None,
-    key=f"user_input_{st.session_state.input_key}", 
-    on_change=check_answer, 
-    label_visibility="collapsed" )
+#    format="%d",
+#    value=None,
+#    key=f"user_input_{st.session_state.input_key}", 
+#    on_change=check_answer, 
+#    label_visibility="collapsed" )
 
 
 # 6° Riga: Feedback e attesa
