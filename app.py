@@ -68,7 +68,7 @@ col_left, col_right = st.columns(2)
 with col_left:
     st.write(st.session_state.start_time)
 with col_right:
-    nome = st.text_input("Nome del Partecipante", value="Homer J Simpson", key="user_name")
+    nome = st.text_input("Partecipante", value="Homer J Simpson", key="user_name")
 
 st.markdown('<div style="margin-top: 24px;"></div>', unsafe_allow_html=True)
 
@@ -82,7 +82,7 @@ if st.session_state.history:
 else:
     perc_ok, t_medio, prog = 0, 0, 1
 
-st.markdown(f'<p class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; % ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp; T Medio: {t_medio:.2f} s</p>', 
+st.markdown(f'<p class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; %    -    ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;    -    T Medio: {t_medio:.2f} s</p>', 
             unsafe_allow_html=True)
 
 # 4° Riga: Esercizio
@@ -137,7 +137,7 @@ st.number_input(
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
     st.markdown(st.session_state.feedback, unsafe_allow_html=True)
-    time.sleep(2)
+    time.sleep(2.4)
     st.session_state.feedback = None
     st.rerun()
 
