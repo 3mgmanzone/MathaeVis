@@ -155,65 +155,52 @@ def check_answer():
 # --- 5° RIGA: Campo di inserimento ---
 # Usiamo la chiave dinamica qui
 # --- CSS ---
-st.markdown("""
-<style>
-input {
-    text-align: center !important;
-    font-size: 40px !important;
-    font-weight: bold !important;
-}
-</style>
-""", unsafe_allow_html=True)
+#st.markdown("""
+#<style>
+#input {
+#    text-align: center !important;
+#    font-size: 40px !important;
+#    font-weight: bold !important;
+#}
+#</style>
+#""", unsafe_allow_html=True)
 
 # --- input ---
-st.text_input(
-    label="Inserisci risultato e premi Invio",
-    value="",
-    key=f"user_input_{st.session_state.input_key}",
-    on_change=check_answer,
-    label_visibility="collapsed"
-)
-st.markdown("""
-<script>
-setTimeout(() => {
-    const inputs = window.parent.document.querySelectorAll("input");
-    if (inputs.length > 0) {
-        inputs[inputs.length - 1].focus();
-    }
-}, 100);
-</script>
-""", unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#st.number_input(
-#    "Inserisci risultato e premi Invio", 
-#    step=1, 
-#    value=None,
-#    key=f"user_input_{st.session_state.input_key}", 
-#    on_change=check_answer, 
+#st.text_input(
+#    label="Inserisci risultato e premi Invio",
+#    value="",
+#    key=f"user_input_{st.session_state.input_key}",
+#    on_change=check_answer,
 #    label_visibility="collapsed"
 #)
-# focus_input()
+#st.markdown("""
+#<script>
+#setTimeout(() => {
+#    const inputs = window.parent.document.querySelectorAll("input");
+#    if (inputs.length > 0) {
+#        inputs[inputs.length - 1].focus();
+#    }
+#}, 100);
+#</script>
+#""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+st.number_input(
+    "Inserisci risultato e premi Invio", 
+    step=1, 
+    value=None,
+    key=f"user_input_{st.session_state.input_key}", 
+    on_change=check_answer, 
+    label_visibility="collapsed" )
+
+
+
+
 
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
