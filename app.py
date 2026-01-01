@@ -83,7 +83,7 @@ if st.session_state.history:
 else:
     perc_ok, t_medio, prog = 0, 0, 1
 
-st.markdown(f'<p class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; %    -    ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;    -    T medio: {t_medio:.2f} s</p>', 
+st.markdown(f'<p style="font-size: 28px; white-space: pre-wrap; class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; %    -    ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;    -    T medio: {t_medio:.2f} s</p>', 
             unsafe_allow_html=True)
 
 # 4° Riga: Esercizio
