@@ -98,9 +98,9 @@ st.markdown(
 #st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
 st.markdown(
     f"""
-    <div style="margin-top: 2rem;">
+    <div style="margin-top: 2rem; style="text-align: center;">
         <p style="
-            font-size: 28px;
+            font-size: 40px;
             font-weight: bold;
             background-color: #fff3cd;
             padding: 12px 16px;
