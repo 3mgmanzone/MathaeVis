@@ -195,7 +195,7 @@ if st.session_state.feedback:
 
 # 7° Riga: Report PDF
 st.markdown('<div style="margin-top: 40px; text-align: center;">', unsafe_allow_html=True)
-if st.button("Genera Report"):
+if st.button("Scarica Report"):
     if not st.session_state.history:
         st.error("Nessun dato per il report!")
     else:
@@ -214,7 +214,7 @@ if st.button("Genera Report"):
         df_plot = pd.DataFrame(st.session_state.history)
         plt.figure(figsize=(6, 4))
         plt.plot(df_plot['n'], df_plot['tempo'].fillna(0), marker='o')
-        plt.title("Grafico Tempi di Risposta")
+        plt.title("Tempi di Risposta")
         plt.xlabel("Esercizio")
         plt.ylabel("Tempi (s)")
         
@@ -225,7 +225,7 @@ if st.button("Genera Report"):
         plt.close() # chiude la figura per liberare memoria
         
         # Tabella
-        pdf.ln(80)
+        pdf.ln(160) # spazio tra grafico e tabella
         pdf.set_font("Helvetica", 'B', 10)
         cols = ["N", "Domanda", "Corr", "Data", "T(s)", "Esito"]
         for col in cols: pdf.cell(30, 10, col, border=1)
@@ -248,8 +248,7 @@ if st.button("Genera Report"):
         pdf_buffer = io.BytesIO()
         pdf.output(pdf_buffer)  # scrive direttamente nel buffer
         pdf_buffer.seek(0)      # riporta il cursore all’inizio
-        st.download_button( "Scarica Report PDF", 
-                            # data=pdf.output(dest='S'),
+        st.download_button( "Clicca per scaricare il PDF", 
                             data=pdf_buffer,
                             file_name="report_mathae_vis.pdf",
                             mime="application/pdf" )
