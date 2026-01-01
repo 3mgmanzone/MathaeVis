@@ -143,14 +143,19 @@ def check_answer():
         
         # Impostazione feedback
         if esito == "CORRETTO":
-            st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba  -  Tempo: {elapsed} s</p>'
+            # st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba  -  Tempo: {elapsed} s</p>'
+            st.session_state.feedback = f"""
+                <p style="color: #28a745; font-size: 24px; font-weight: bold; text-align: center;">
+                    Minchia - EINSTEIN si sta cagando in mano nella tomba  -  Tempo: {elapsed} s
+                </p>
+            """
         else:
-            st.session_state.feedback = f'<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!  -  Soluzione: {correct_val} </p>'
-        
-        # Prepariamo il prossimo esercizio
-        #st.session_state.current_exercise = None 
-        #st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
-        
+            # st.session_state.feedback = f'<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!  -  Soluzione: {correct_val} </p>'    
+            st.session_state.feedback = f"""
+                <p style="color: #dc3545; font-size: 24px; font-weight: bold; text-align: center;">
+                    Sei proprio un MONGOLO - tornatene alle Elementari !!  -  Soluzione: {correct_val}
+                </p>
+            """
 
 
 # --- 5° RIGA: Campo di inserimento ---
@@ -182,29 +187,13 @@ if st.session_state.feedback:
     st.markdown(st.session_state.feedback, unsafe_allow_html=True)
     time.sleep(2)
     st.session_state.feedback = None
-    st.session_state.current_exercise = None #####
-    st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro #####
+    # Prepariamo il prossimo esercizio
+    st.session_state.current_exercise = None
+    st.session_state.input_key += 1 # svuota il campo per il prossimo giro
     st.rerun()
 
 
 # 7° Riga: Report PDF
-#st.markdown("""
-#<style>
-#/* centra il bottone */
-#div.stButton {
-#    display: flex;
-#    justify-content: center;
-#}#
-#
-#/* stile del bottone */
-#div.stButton > button {
-#    font-size: 48px !important;
-#    font-weight: bold !important;
-#    border: 4px solid red !important;
-#    padding: 12px 36px !important;
-#}
-#</style>
-##""", unsafe_allow_html=True)
 st.markdown('<div style="margin-top: 40px; text-align: center;">', unsafe_allow_html=True)
 if st.button("Genera Report"):
     if not st.session_state.history:
