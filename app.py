@@ -86,8 +86,8 @@ else:
 st.markdown(
     f"""
     <div style="text-align: center;">
-        <span style="color:#28a745; font-size:28px; font-weight:bold;">
-            {prog}  %  -  ok: {perc_ok:.1f}  -  T medio: {t_medio:.2f} s
+        <span style="color:#28a745; font-size:24px; font-weight:bold;">
+            ##: {prog} &nbsp;&nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: &nbsp;{perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
         </span>
     </div>
     """,
@@ -112,6 +112,18 @@ st.markdown(
 
 # 4° Riga: Esercizio
 st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
+#st.markdown('<p class="title" style="font-size: 40px;">Mathae Vis</p>', unsafe_allow_html=True)
+#st.markdown(
+#    f"""
+#    <div style="text-align: center;">
+#        <span style="color:#28a745; font-size:24px; font-weight:bold;">
+#            ##: {prog} &nbsp;&nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: &nbsp;{perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
+#        </span>
+#    </div>
+#    """,
+#    unsafe_allow_html=True
+#)
+
 
 # 5° Riga: Input (Valida all'invio)
 # --- LOGICA DI CONTROLLO (Inserisci questa funzione PRIMA del campo input) ---
