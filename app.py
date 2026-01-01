@@ -84,15 +84,20 @@ else:
     perc_ok, t_medio, prog = 0, 0, 1
 
 st.markdown(f"""
-            <p style="font-size: 28px;
-            color: #00FF00;
+    <div style="text-align: center;">
+        <p style="
+            font-size: 28px !important;
+            color: #28a745 !important;
+            font-weight: bold !important;
+            display: inline-block;
             white-space: pre-wrap;
-            text-align: center;
-            class="metrics">
-            ##: {prog} &nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: {t_medio:.2f} s
-            </p>
-            """, 
-            unsafe_allow_html=True)
+            margin: 0 auto;
+        ">
+            ##: {prog} &nbsp;&nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: &nbsp;{perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
+        </p>
+    </div>
+    """, 
+    unsafe_allow_html=True)
 
 # 4° Riga: Esercizio
 st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
