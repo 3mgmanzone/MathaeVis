@@ -94,24 +94,27 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-#st.markdown(f"""
-#    <div style="text-align: center;">
-#        <p style="
-#            font-size: 28px !important;
-#            color: #28a745 !important;
-#            font-weight: bold !important;
-#            display: inline-block;
-#            white-space: pre-wrap;
-#            margin: 0 auto;
-#        ">
-#            ##: {prog} &nbsp;&nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: &nbsp;{perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
-#        </p>
-#    </div>
-#    """, 
-#    unsafe_allow_html=True)
-
 # 4° Riga: Esercizio
-st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
+#st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
+st.markdown(
+    f"""
+    <div style="margin-top: 2rem;">
+        <p style="
+            font-size: 28px;
+            font-weight: bold;
+            background-color: #fff3cd;
+            padding: 12px 16px;
+            border-radius: 6px;
+        ">
+            {st.session_state.current_exercise["q"]}
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
 #st.markdown('<p class="title" style="font-size: 40px;">Mathae Vis</p>', unsafe_allow_html=True)
 #st.markdown(
 #    f"""
