@@ -128,7 +128,7 @@ def check_answer():
         end_time = time.time()
         elapsed = round(end_time - st.session_state.exercise_start_time, 2)
         correct_val = st.session_state.current_exercise["a"]
-                esito = "CORRETTO" if int(ans) == correct_val else "ERRORE"
+        esito = "CORRETTO" if int(ans) == correct_val else "ERRORE"
         
         # Salvataggio nei dati
         entry = {
@@ -153,7 +153,7 @@ def check_answer():
         st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
         # forza refresh
         st.rerun()
-        
+
 
 # --- 5° RIGA: Campo di inserimento ---
 # --- stile minimale ---
