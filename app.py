@@ -146,13 +146,11 @@ def check_answer():
             st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba  -  Tempo: {elapsed} s</p>'
         else:
             st.session_state.feedback = f'<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!  -  Soluzione: {correct_val} </p>'
-        time.sleep(2.4) # Aspetta un attimo per leggere il feedback
-
+        
         # Prepariamo il prossimo esercizio
-        st.session_state.current_exercise = None 
-        st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
-        # forza refresh
-        #st.rerun()
+        #st.session_state.current_exercise = None 
+        #st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
+        
 
 
 # --- 5° RIGA: Campo di inserimento ---
@@ -186,6 +184,8 @@ if st.session_state.feedback:
     st.markdown(st.session_state.feedback, unsafe_allow_html=True)
     time.sleep(2.4)
     st.session_state.feedback = None
+    st.session_state.current_exercise = None #####
+    st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro #####
     st.rerun()
 
 
