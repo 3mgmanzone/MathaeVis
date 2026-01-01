@@ -89,35 +89,50 @@ st.markdown(f'<p class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; % ok: {perc_ok:.1
 st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
 
 # 5° Riga: Input (Valida all'invio)
+# --- LOGICA DI CONTROLLO (Inserisci questa funzione PRIMA del campo input) ---
 def check_answer():
-    ans = st.session_state.user_answer
+    # Accediamo alla chiave dinamica corretta
+    current_key = f"user_input_{st.session_state.input_key}"
+    ans = st.session_state.get(current_key)
+    
     if ans is not None:
         end_time = time.time()
         elapsed = round(end_time - st.session_state.exercise_start_time, 2)
-        correct = st.session_state.current_exercise["a"]
+        correct_val = st.session_state.current_exercise["a"]
         
-        esito = "CORRETTO" if int(ans) == correct else "ERRORE"
+        esito = "CORRETTO" if int(ans) == correct_val else "ERRORE"
         
+        # Salvataggio nei dati
         entry = {
             "n": len(st.session_state.history) + 1,
             "domanda": st.session_state.current_exercise["q"],
-            "corretta": correct,
+            "corretta": correct_val,
             "data": int(ans),
             "tempo": elapsed if esito == "CORRETTO" else None,
             "esito": esito
         }
         st.session_state.history.append(entry)
         
+        # Impostazione feedback
         if esito == "CORRETTO":
             st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba - Tempo: {elapsed} s</p>'
         else:
             st.session_state.feedback = '<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!</p>'
         
-        # Reset per prossimo esercizio
+        # Prepariamo il prossimo esercizio
         st.session_state.current_exercise = None 
-        st.session_state.input_key += 1 # Reset campo input
+        st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
 
-st.number_input("", step=1, key=f"user_answer_{st.session_state.input_key}", on_change=check_answer, label_visibility="collapsed")
+# --- 5° RIGA: Campo di inserimento ---
+# Usiamo la chiave dinamica qui
+st.number_input(
+    "Inserisci risultato e premi Invio", 
+    step=1, 
+    value=None,
+    key=f"user_input_{st.session_state.input_key}", 
+    on_change=check_answer, 
+    label_visibility="collapsed"
+)
 
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
