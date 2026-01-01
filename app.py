@@ -83,13 +83,16 @@ if st.session_state.history:
 else:
     perc_ok, t_medio, prog = 0, 0, 1
 
-st.markdown(f'<p style="font-size: 28px;
-                        color: #00FF00;
-                        white-space: pre-wrap;
-                        text-align: center;
-                        class="metrics">
-                        ##: {prog} &nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: {t_medio:.2f} s</p>', 
-                        unsafe_allow_html=True)
+st.markdown(f"""
+            <p style="font-size: 28px;
+            color: #00FF00;
+            white-space: pre-wrap;
+            text-align: center;
+            class="metrics">
+            ##: {prog} &nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: {t_medio:.2f} s
+            </p>
+            """, 
+            unsafe_allow_html=True)
 
 # 4° Riga: Esercizio
 st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
