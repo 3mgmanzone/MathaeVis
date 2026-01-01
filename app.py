@@ -89,7 +89,7 @@ st.markdown(
     f"""
     <div style="text-align: center;">
         <span style="color:#28a745; font-size:24px; font-weight:bold;">
-            ##: {prog} &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; ok: &nbsp;{perc_ok:.1f} &nbsp; % &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
+            ##: {prog} &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; ok: &nbsp;{perc_ok:.1f} % &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
         </span>
     </div>
     """,
@@ -128,8 +128,7 @@ def check_answer():
         end_time = time.time()
         elapsed = round(end_time - st.session_state.exercise_start_time, 2)
         correct_val = st.session_state.current_exercise["a"]
-        
-        esito = "CORRETTO" if int(ans) == correct_val else "ERRORE"
+                esito = "CORRETTO" if int(ans) == correct_val else "ERRORE"
         
         # Salvataggio nei dati
         entry = {
@@ -147,48 +146,16 @@ def check_answer():
             st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba  -  Tempo: {elapsed} s</p>'
         else:
             st.session_state.feedback = f'<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!  -  Soluzione: {correct_val} </p>'
-        
+        time.sleep(2.4) # Aspetta un attimo per leggere il feedback
+
         # Prepariamo il prossimo esercizio
         st.session_state.current_exercise = None 
         st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
+        # forza refresh
+        st.rerun()
+        
 
 # --- 5° RIGA: Campo di inserimento ---
-# Usiamo la chiave dinamica qui
-# --- CSS ---
-#st.markdown("""
-#<style>
-#input {
-#    text-align: center !important;
-#    font-size: 40px !important;
-#    font-weight: bold !important;
-#}
-#</style>
-#""", unsafe_allow_html=True)
-
-# --- input ---
-#st.text_input(
-#    label="Inserisci risultato e premi Invio",
-#    value="",
-#    key=f"user_input_{st.session_state.input_key}",
-#    on_change=check_answer,
-#    label_visibility="collapsed"
-#)
-#st.markdown("""
-#<script>
-#setTimeout(() => {
-#    const inputs = window.parent.document.querySelectorAll("input");
-#    if (inputs.length > 0) {
-#        inputs[inputs.length - 1].focus();
-#    }
-#}, 100);
-#</script>
-#""", unsafe_allow_html=True)
-
-
-
-
-
-
 # --- stile minimale ---
 st.markdown("""
 <style>
@@ -200,21 +167,18 @@ div[data-baseweb="input"] {
 /* stile del campo numerico */
 input {
     text-align: center !important;
-    font-size: 24px !important;
+    font-size: 40px !important;
     font-weight: bold !important;
 }
 </style>
 """, unsafe_allow_html=True)
 st.number_input(
     "Inserisci risultato e premi Invio", 
-    step=1, 
+#    step=1, 
     value=None,
     key=f"user_input_{st.session_state.input_key}", 
     on_change=check_answer, 
     label_visibility="collapsed" )
-
-
-
 
 
 # 6° Riga: Feedback e attesa
@@ -223,6 +187,7 @@ if st.session_state.feedback:
     time.sleep(2.4)
     st.session_state.feedback = None
     st.rerun()
+
 
 # 7° Riga: Report PDF
 st.markdown('<div style="margin-top: 40px; text-align: center;">', unsafe_allow_html=True)
