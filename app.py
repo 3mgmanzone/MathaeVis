@@ -62,7 +62,7 @@ if st.session_state.current_exercise is None:
 # --- INTERFACCIA ---
 
 # 1° Riga: Titolo
-st.markdown('<p class="title">Mathae Vis</p>', unsafe_allow_html=True)
+st.markdown('<p class="title" style="font-size: 40px;">Mathae Vis</p>', unsafe_allow_html=True)
 
 # 2° Riga: Info Inizio e Nome
 col_left, col_right = st.columns(2)
@@ -83,7 +83,7 @@ if st.session_state.history:
 else:
     perc_ok, t_medio, prog = 0, 0, 1
 
-st.markdown(f'<p class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; %    -    ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;    -    T Medio: {t_medio:.2f} s</p>', 
+st.markdown(f'<p class="metrics">##: {prog} &nbsp;&nbsp;&nbsp; %    -    ok: {perc_ok:.1f} &nbsp;&nbsp;&nbsp;    -    T medio: {t_medio:.2f} s</p>', 
             unsafe_allow_html=True)
 
 # 4° Riga: Esercizio
@@ -134,7 +134,7 @@ st.number_input(
     on_change=check_answer, 
     label_visibility="collapsed"
 )
-focus_input()
+# focus_input()
 
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
