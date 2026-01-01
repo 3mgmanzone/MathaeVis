@@ -1,10 +1,11 @@
 import streamlit as st
 import random
 import time
+from fpdf2 import FPDF
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
-from fpdf2 import FPDF
+
 import io
 
 # Configurazione Pagina
