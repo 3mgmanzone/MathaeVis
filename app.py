@@ -245,10 +245,12 @@ if st.button("Genera Report"):
             pdf.set_text_color(0, 0, 0)
             pdf.ln()
         
-        pdf_bytes = pdf.output(dest='S').encode('latin1')  #### FPDF2 PDF → bytes
+        pdf_buffer = io.BytesIO()
+        pdf.output(pdf_buffer)  # scrive direttamente nel buffer
+        pdf_buffer.seek(0)      # riporta il cursore all’inizio
         st.download_button( "Scarica Report PDF", 
                             # data=pdf.output(dest='S'),
-                            data=pdf_bytes,
+                            data=pdf_buffer,
                             file_name="report_mathae_vis.pdf",
                             mime="application/pdf" )
 st.markdown('</div>', unsafe_allow_html=True)
