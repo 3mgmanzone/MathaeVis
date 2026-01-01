@@ -3,7 +3,7 @@ import random
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
-import streamlit.components.v1 as components
+#import streamlit.components.v1 as components
 from datetime import datetime
 from fpdf import FPDF
 import io
@@ -64,6 +64,7 @@ if st.session_state.current_exercise is None:
 # 1° Riga: Titolo
 st.markdown('<p class="title" style="font-size: 40px;">Mathae Vis</p>', unsafe_allow_html=True)
 
+
 # 2° Riga: Info Inizio e Nome
 col_left, col_right = st.columns(2)
 with col_left:
@@ -72,6 +73,7 @@ with col_right:
     nome = st.text_input("Partecipante", value="Homer J Simpson", key="user_name")
 
 st.markdown('<div style="margin-top: 24px;"></div>', unsafe_allow_html=True)
+
 
 # 3° Riga: Metriche
 if st.session_state.history:
@@ -87,31 +89,15 @@ st.markdown(
     f"""
     <div style="text-align: center;">
         <span style="color:#28a745; font-size:24px; font-weight:bold;">
-            ##: {prog} &nbsp;&nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: &nbsp;{perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
+            ##: {prog} &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; ok: &nbsp;{perc_ok:.1f} &nbsp; % &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
         </span>
     </div>
     """,
     unsafe_allow_html=True
 )
 
+
 # 4° Riga: Esercizio
-#st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
-#st.markdown(
-#    f"""
-#    <div style="margin-top: 2rem; style="text-align: center;">
-#        <p style="
-#            font-size: 40px;
-#            font-weight: bold;
-#            background-color: #fff3cd;
-#            padding: 12px 16px;
-#            border-radius: 6px;
-#        ">
-#            {st.session_state.current_exercise["q"]}
-#        </p>
-#    </div>
-#    """,
-#    unsafe_allow_html=True
-#)
 st.markdown(
     f"""
     <div style="
@@ -129,20 +115,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
-
-#st.markdown('<p class="title" style="font-size: 40px;">Mathae Vis</p>', unsafe_allow_html=True)
-#st.markdown(
-#    f"""
-#    <div style="text-align: center;">
-#        <span style="color:#28a745; font-size:24px; font-weight:bold;">
-#            ##: {prog} &nbsp;&nbsp; % &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;ok: &nbsp;{perc_ok:.1f} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;T medio: &nbsp;{t_medio:.2f} s
-#        </span>
-#    </div>
-#    """,
-#    unsafe_allow_html=True
-#)
 
 
 # 5° Riga: Input (Valida all'invio)
@@ -182,14 +154,71 @@ def check_answer():
 
 # --- 5° RIGA: Campo di inserimento ---
 # Usiamo la chiave dinamica qui
+# --- CSS custom ---
+st.markdown("""
+<style>
+/* centra il widget */
+div[data-baseweb="input"] {
+    justify-content: center;
+}
+
+/* stile del campo input */
+input {
+    text-align: center !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
+}
+</style>
+""", unsafe_allow_html=True)
+# --- number input ---
 st.number_input(
-    "Inserisci risultato e premi Invio", 
-    step=1, 
+    "Inserisci risultato e premi Invio",
+    step=1,
     value=None,
-    key=f"user_input_{st.session_state.input_key}", 
-    on_change=check_answer, 
+    key=f"user_input_{st.session_state.input_key}",
+    on_change=check_answer,
     label_visibility="collapsed"
 )
+st.markdown("""
+<script>
+setTimeout(() => {
+    const inputs = window.parent.document.querySelectorAll("input");
+    if (inputs.length > 0) {
+        inputs[inputs.length - 1].focus();
+    }
+}, 100);
+</script>
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#st.number_input(
+#    "Inserisci risultato e premi Invio", 
+#    step=1, 
+#    value=None,
+#    key=f"user_input_{st.session_state.input_key}", 
+#    on_change=check_answer, 
+#    label_visibility="collapsed"
+#)
 # focus_input()
 
 # 6° Riga: Feedback e attesa
