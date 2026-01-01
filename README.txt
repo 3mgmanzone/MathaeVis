@@ -18,7 +18,7 @@ https://mathaevis-sigpaeswurqnhqcqdda77u.streamlit.app/
 
 
 # aggiorno su GIT
-(.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git add first_API.py
+(.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git add app.py
 (.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git commit -m "aggiorno il file python"
 (.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git push
 
