@@ -201,6 +201,7 @@ if st.button("Genera Report"):
     else:
         pdf = FPDF()
         pdf.add_page()
+        # intestazione
         pdf.set_font("Helvetica", 'B', 24)
         pdf.set_text_color(0, 0, 255)
         pdf.cell(190, 20, "Mathae Vis", ln=True, align='C')
