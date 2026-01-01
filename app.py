@@ -3,6 +3,7 @@ import random
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
+import streamlit.components.v1 as components
 from datetime import datetime
 from fpdf import FPDF
 import io
@@ -115,9 +116,9 @@ def check_answer():
         
         # Impostazione feedback
         if esito == "CORRETTO":
-            st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba - Tempo: {elapsed} s</p>'
+            st.session_state.feedback = f'<p class="feedback-ok">Minchia - EINSTEIN si sta cagando in mano nella tomba  -  Tempo: {elapsed} s</p>'
         else:
-            st.session_state.feedback = '<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!</p>'
+            st.session_state.feedback = f'<p class="feedback-ko">Sei proprio un MONGOLO - tornatene alle Elementari !!  -  Soluzione: {correct_val} </p>'
         
         # Prepariamo il prossimo esercizio
         st.session_state.current_exercise = None 
@@ -133,6 +134,7 @@ st.number_input(
     on_change=check_answer, 
     label_visibility="collapsed"
 )
+focus_input()
 
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
