@@ -173,6 +173,7 @@ input {
 st.number_input(
     "Inserisci risultato e premi Invio", 
 #    step=1, 
+    format="%d",
     value=None,
     key=f"user_input_{st.session_state.input_key}", 
     on_change=check_answer, 
