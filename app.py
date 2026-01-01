@@ -152,7 +152,7 @@ def check_answer():
         st.session_state.current_exercise = None 
         st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro
         # forza refresh
-        st.rerun()
+        #st.rerun()
 
 
 # --- 5° RIGA: Campo di inserimento ---
@@ -184,9 +184,9 @@ st.number_input(
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
     st.markdown(st.session_state.feedback, unsafe_allow_html=True)
-    # time.sleep(2.4)
+    time.sleep(2.4)
     st.session_state.feedback = None
-    #st.rerun()
+    st.rerun()
 
 
 # 7° Riga: Report PDF
