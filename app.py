@@ -10,7 +10,7 @@ import io
 # Configurazione Pagina
 st.set_page_config(page_title="Mathae Vis", layout="wide")
 
-# CSS Personalizzato per font e spaziature
+# CSS personalizzato per font e spaziature
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap');
