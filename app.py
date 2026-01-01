@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import time
-from fpdf2 import FPDF
+from fpdf import FPDF
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
