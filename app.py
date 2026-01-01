@@ -175,20 +175,12 @@ st.text_input(
     key=f"user_input_{st.session_state.input_key}", 
     on_change=check_answer
 )
-#st.number_input(
-#    "Inserisci risultato e premi Invio", 
-#    step=1, 
-#    format="%d",
-#    value=None,
-#    key=f"user_input_{st.session_state.input_key}", 
-#    on_change=check_answer, 
-#    label_visibility="collapsed" )
 
 
 # 6° Riga: Feedback e attesa
 if st.session_state.feedback:
     st.markdown(st.session_state.feedback, unsafe_allow_html=True)
-    time.sleep(2.4)
+    time.sleep(2)
     st.session_state.feedback = None
     st.session_state.current_exercise = None #####
     st.session_state.input_key += 1 # Questo svuota il campo per il prossimo giro #####
@@ -196,7 +188,24 @@ if st.session_state.feedback:
 
 
 # 7° Riga: Report PDF
-st.markdown('<div style="margin-top: 40px; text-align: center;">', unsafe_allow_html=True)
+st.markdown("""
+<style>
+/* centra il bottone */
+div.stButton {
+    display: flex;
+    justify-content: center;
+}
+
+/* stile del bottone */
+div.stButton > button {
+    font-size: 48px !important;
+    font-weight: bold !important;
+    border: 4px solid red !important;
+    padding: 12px 36px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+#st.markdown('<div style="margin-top: 40px; text-align: center;">', unsafe_allow_html=True)
 if st.button("Genera Report"):
     if not st.session_state.history:
         st.error("Nessun dato per il report!")
