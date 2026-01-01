@@ -189,7 +189,22 @@ def check_answer():
 
 
 
+# --- stile minimale ---
+st.markdown("""
+<style>
+/* centra il contenitore del number_input */
+div[data-baseweb="input"] {
+    justify-content: center;
+}
 
+/* stile del campo numerico */
+input {
+    text-align: center !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+</style>
+""", unsafe_allow_html=True)
 st.number_input(
     "Inserisci risultato e premi Invio", 
     step=1, 
