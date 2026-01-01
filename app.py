@@ -253,5 +253,8 @@ if st.button("Genera Report"):
             pdf.set_text_color(0, 0, 0)
             pdf.ln()
             
-        st.download_button("Scarica Report PDF", data=pdf.output(dest='S'), file_name="report_mathae_vis.pdf", mime="application/pdf")
-st.markdown('</div>', unsafe_allow_html=True)
+        st.download_button( "Scarica Report PDF", 
+                            data=pdf.output(dest='S'),
+                            file_name="report_mathae_vis.pdf",
+                            mime="application/pdf" )
+#st.markdown('</div>', unsafe_allow_html=True)
