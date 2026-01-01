@@ -225,7 +225,7 @@ if st.button("Scarica Report"):
         plt.close() # chiude la figura per liberare memoria
         
         # Tabella
-        pdf.ln(160) # spazio tra grafico e tabella
+        pdf.ln(100) # spazio tra grafico e tabella
         pdf.set_font("Helvetica", 'B', 10)
         cols = ["N", "Domanda", "Corr", "Data", "T(s)", "Esito"]
         for col in cols: pdf.cell(30, 10, col, border=1)
