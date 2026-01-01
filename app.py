@@ -96,18 +96,35 @@ st.markdown(
 
 # 4° Riga: Esercizio
 #st.markdown(f'<p class="exercise">{st.session_state.current_exercise["q"]}</p>', unsafe_allow_html=True)
+#st.markdown(
+#    f"""
+#    <div style="margin-top: 2rem; style="text-align: center;">
+#        <p style="
+#            font-size: 40px;
+#            font-weight: bold;
+#            background-color: #fff3cd;
+#            padding: 12px 16px;
+#            border-radius: 6px;
+#        ">
+#            {st.session_state.current_exercise["q"]}
+#        </p>
+#    </div>
+#    """,
+#    unsafe_allow_html=True
+#)
 st.markdown(
     f"""
-    <div style="margin-top: 2rem; style="text-align: center;">
-        <p style="
-            font-size: 40px;
-            font-weight: bold;
-            background-color: #fff3cd;
-            padding: 12px 16px;
-            border-radius: 6px;
-        ">
-            {st.session_state.current_exercise["q"]}
-        </p>
+    <div style="
+        margin-top: 2rem;
+        background-color: #fff3cd;
+        font-size: 40px;
+        font-weight: bold;
+        padding: 16px 20px;
+        border-left: 6px solid #ffc107;
+        border-radius: 6px;
+        text-align: center;
+    ">
+        {st.session_state.current_exercise["q"]}
     </div>
     """,
     unsafe_allow_html=True
