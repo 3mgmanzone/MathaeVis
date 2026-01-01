@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #import streamlit.components.v1 as components
 from datetime import datetime
-from fpdf import FPDF
+from fpdf2 import FPDF
 import io
 
 # Configurazione Pagina
