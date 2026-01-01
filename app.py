@@ -219,7 +219,9 @@ if st.button("Genera Report"):
         
         img_buf = io.BytesIO()
         plt.savefig(img_buf, format='png')
+        img_buf.seek(0)  # riporta il cursore all'inizio del buffer
         pdf.image(img_buf, x=50, y=50, w=110)
+        plt.close() # chiude la figura per liberare memoria
         
         # Tabella
         pdf.ln(80)
