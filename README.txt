@@ -21,3 +21,8 @@ https://mathaevis-sigpaeswurqnhqcqdda77u.streamlit.app/
 (.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git add first_API.py
 (.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git commit -m "aggiorno il file python"
 (.amb_virtuale) @3mgmanzone ➜ /workspaces/API_python (main) $ git push
+
+
+# comandi per lo StreamLit
+streamlit cache clear
+streamlit run app.py
